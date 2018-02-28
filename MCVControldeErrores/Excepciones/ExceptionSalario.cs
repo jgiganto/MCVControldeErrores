@@ -5,9 +5,9 @@ using System.Web;
 
 namespace MCVControldeErrores.Excepciones
 {
-    public class ExceptionSalario:Exception
+    public class ExceptionSalario: Exception
     {
-        
+        public ExceptionSalario(String mensajeerror) : base(mensajeerror) { }
 
 
     }

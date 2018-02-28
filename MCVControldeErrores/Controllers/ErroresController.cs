@@ -45,8 +45,10 @@ namespace MCVControldeErrores.Controllers
             EMP jefe = modelo.BuscarEmpleado(empleado.DIR.GetValueOrDefault());
             if(empleado.SALARIO.GetValueOrDefault() > jefe.SALARIO.GetValueOrDefault())
             {
-              
-                    throw new Exception("El salario del empleado (" + empleado.SALARIO.GetValueOrDefault() + ") no puede ser mayor al de su jefe("
+                ExceptionSalario error = new ExceptionSalario();
+                //error.mitipo
+
+                    throw new ExceptionSalario("El salario del empleado (" + empleado.SALARIO.GetValueOrDefault() + ") no puede ser mayor al de su jefe("
                         + jefe.SALARIO + ") .");
               
                 

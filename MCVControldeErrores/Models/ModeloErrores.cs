@@ -43,7 +43,7 @@ namespace MCVControldeErrores.Models
         public int GetMaximoIdException()
         {
             int maximo = (from datos in contexto.EXCEPCIONES
-                          select datos.IDEXCEPCION).Max(); //cambiar a FirstOrDefault para que de otro error 
+                          select datos.IDEXCEPCION).FirstOrDefault(); //cambiar a FirstOrDefault para que de otro error con max()no da error
             if (maximo == null)
             {
                 return 1;
