@@ -11,7 +11,16 @@ namespace MCVControldeErrores.Controllers
 {
     public class ErroresController : Controller
     {
-        
+        protected override void HandleUnknownAction(string actionName)
+        {
+            base.HandleUnknownAction(actionName);
+        }
+        //si queremos manejar cualquier excepcion dentro de un controlador , sin filtro
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            base.OnException(filterContext);
+        }
+
         ModeloErrores modelo;
         public ErroresController()
         {
@@ -36,18 +45,11 @@ namespace MCVControldeErrores.Controllers
             EMP jefe = modelo.BuscarEmpleado(empleado.DIR.GetValueOrDefault());
             if(empleado.SALARIO.GetValueOrDefault() > jefe.SALARIO.GetValueOrDefault())
             {
-                ExceptionSalario ex = new ExceptionSalario();
-                String tipo = ex.Miexcepcion();
-                if (tipo == "salarioerror")
-                {
+              
                     throw new Exception("El salario del empleado (" + empleado.SALARIO.GetValueOrDefault() + ") no puede ser mayor al de su jefe("
                         + jefe.SALARIO + ") .");
-                }
-                else
-                {
-                    return RedirectToAction("OtroError");
-                }
-                     
+              
+                
             }
 
             modelo.InsertarEmpleado(empleado.EMP_NO,empleado.APELLIDO,

@@ -7,15 +7,7 @@ namespace MCVControldeErrores.Excepciones
 {
     public class ExceptionSalario:Exception
     {
-
-
-        public string Miexcepcion()
-        {
-
-            String tipo = "salarioerror";
-            return tipo;
-        }
-
+        
 
 
     }
