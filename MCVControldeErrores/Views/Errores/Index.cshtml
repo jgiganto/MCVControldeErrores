@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MCVControldeErrores.Models.EMP>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            NUMERO
+        </th>
+        <th>
+            APELLIDO
+        </th>
+        <th>
+            OFICIO
+        </th>
+   
+        <th>
+             SALARIO
+        </th>
+  
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMP_NO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APELLIDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OFICIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SALARIO)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |       
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using MCVControldeErrores.Filters;
 
 namespace MCVControldeErrores
 {
@@ -8,6 +9,7 @@ namespace MCVControldeErrores
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new ExceptionControlSalariosAttribute());
         }
     }
 }
